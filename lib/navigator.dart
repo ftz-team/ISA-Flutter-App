@@ -6,15 +6,15 @@ import 'package:isa_new/Screens/chatScreen.dart';
 import 'package:isa_new/Screens/liveScreen.dart';
 import 'package:isa_new/Screens/newsScreen.dart';
 import 'package:isa_new/Screens/profileScreen.dart';
+import 'package:isa_new/UI/UI.dart';
 
 import 'UI/navbar.dart';
 
-class IsaNavigator extends StatefulWidget{
+class   IsaNavigator extends StatefulWidget{
   NavigatorState createState()=>NavigatorState();
 }
 
 class NavigatorState extends State<IsaNavigator>{
-
   //List with all screens
   List<Widget> _pages = [
     newsScreen(),
@@ -22,6 +22,11 @@ class NavigatorState extends State<IsaNavigator>{
     profileScreen(),
     liveScreen()
   ];
+
+  @override
+  void initState(){
+    super.initState();
+  }
 
   //Navigator controller
   PageController _navController = PageController(initialPage: 0);
@@ -32,11 +37,13 @@ class NavigatorState extends State<IsaNavigator>{
       floatingActionButtonLocation:
       FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        //FIXME use color from ui
+        backgroundColor: Color(0xffFFB73E),
         child: const Icon(Icons.add), onPressed: () {},),
       bottomNavigationBar: BottomAppBar(
 
         shape: CircularNotchedRectangle(),
-        notchMargin: 10.0,
+        notchMargin: displayWidth(context)*0.03,
         child: new Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,22 +52,8 @@ class NavigatorState extends State<IsaNavigator>{
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    child: NavItem("assets/images/navbarIcons/home.svg"),
-                    width: displayWidth(context)*0.25,
-                    height: displayHeight(context)*0.1,
-                    margin: EdgeInsets.only(
-                      left: displayWidth(context)*0
-                    ),
-                  ),
-                  Container(
-                    child: NavItem("assets/images/navbarIcons/chat.svg"),
-                    width: displayWidth(context)*0.25,
-                    margin: EdgeInsets.only(
-                        right: displayWidth(context)*0
-                    ),
-                  ),
-
+                  NavItem.active("assets/images/navbarIcons/home.svg" , num: 1),
+                  NavItem("assets/images/navbarIcons/chat.svg" , num: 2),
                 ],
               ),
             ),
@@ -68,8 +61,8 @@ class NavigatorState extends State<IsaNavigator>{
              child: Row(
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                children: [
-                 NavItem("assets/images/navbarIcons/profile.svg"),
-                 NavItem("assets/images/navbarIcons/clock.svg"),
+                 NavItem("assets/images/navbarIcons/profile.svg" , num: 3),
+                 NavItem("assets/images/navbarIcons/clock.svg" , num: 4),
                ],
              ),
             )
