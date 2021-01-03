@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +16,13 @@ class   IsaNavigator extends StatefulWidget{
   NavigatorState createState()=>NavigatorState();
 }
 
-class NavigatorState extends State<IsaNavigator>{
+class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
+
+  bool opened = false;
+
+  Animation _arrowAnimation;
+  AnimationController _arrowAnimationController;
+
   //List with all screens
   List<Widget> _pages = [
     newsScreen(),
@@ -24,7 +32,12 @@ class NavigatorState extends State<IsaNavigator>{
   ];
 
   @override
-  void initState(){
+  void initState() {
+
+    _arrowAnimationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _arrowAnimation =
+        Tween(begin: 0.0, end: pi).animate(_arrowAnimationController);
     super.initState();
   }
 
@@ -36,10 +49,27 @@ class NavigatorState extends State<IsaNavigator>{
     return Scaffold(
       floatingActionButtonLocation:
       FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        //FIXME use color from ui
-        backgroundColor: Color(0xffFFB73E),
-        child: const Icon(Icons.add), onPressed: () {},),
+      floatingActionButton: AnimatedBuilder(
+      animation: _arrowAnimationController,
+      builder: (context, child) => Transform.rotate(
+        angle: -_arrowAnimation.value,
+        child: FloatingActionButton(
+          //FIXME use color from ui
+          backgroundColor: Color(0xffFFB73E),
+          child: !opened?const Icon(Icons.add):const Icon(Icons.remove), onPressed: () {
+            //print("rotating");
+            if (opened){
+              _arrowAnimationController.reverse();
+            }else{
+              _arrowAnimationController.forward();
+            }
+           setState(() {
+             opened = !opened;
+           });
+        },),
+      ),
+
+    ),
       bottomNavigationBar: BottomAppBar(
 
         shape: CircularNotchedRectangle(),
