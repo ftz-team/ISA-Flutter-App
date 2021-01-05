@@ -23,6 +23,9 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
   Animation _arrowAnimation;
   AnimationController _arrowAnimationController;
 
+  AnimationController _navbarButtonsAnimationController;
+  Animation<Offset> navbarButtonsAnimationoffset;
+
   //List with all screens
   List<Widget> _pages = [
     newsScreen(),
@@ -38,6 +41,11 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _arrowAnimation =
         Tween(begin: 0.0, end: pi).animate(_arrowAnimationController);
+    _navbarButtonsAnimationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+
+    navbarButtonsAnimationoffset = Tween<Offset>(begin: Offset(0.0, 1.0), end:Offset.zero )
+        .animate(_navbarButtonsAnimationController);
     super.initState();
   }
 
@@ -46,30 +54,47 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
+    return Stack(children: [
+      PageView(
+        controller: _navController,
+        onPageChanged: (int){
+
+        },
+        children: _pages,
+      ),
+      NavItemDropped("assets/images/navbarIcons/schedule.svg",navbarButtonsAnimationoffset,1),
+      NavItemDropped("assets/images/navbarIcons/events.svg",navbarButtonsAnimationoffset,2),
+      NavItemDropped("assets/images/navbarIcons/edit.svg",navbarButtonsAnimationoffset,3),
+      Scaffold(
+        backgroundColor: Color.fromRGBO(255, 255, 255, 0.0),
       floatingActionButtonLocation:
       FloatingActionButtonLocation.centerDocked,
       floatingActionButton: AnimatedBuilder(
-      animation: _arrowAnimationController,
-      builder: (context, child) => Transform.rotate(
-        angle: -_arrowAnimation.value,
-        child: FloatingActionButton(
-          //FIXME use color from ui
-          backgroundColor: Color(0xffFFB73E),
-          child: !opened?const Icon(Icons.add):const Icon(Icons.remove), onPressed: () {
-            //print("rotating");
-            if (opened){
-              _arrowAnimationController.reverse();
-            }else{
-              _arrowAnimationController.forward();
-            }
-           setState(() {
-             opened = !opened;
-           });
-        },),
-      ),
+        animation: _arrowAnimationController,
+        builder: (context, child) => Transform.rotate(
+          angle: -_arrowAnimation.value,
+          child: Container(
+            width: displayWidth(context)*0.175,
+            child: FloatingActionButton(
+              //FIXME use color from ui
+              backgroundColor: Color(0xffFFB73E),
+              child: !opened?const Icon(Icons.add):const Icon(Icons.remove), onPressed: () {
+              //print("rotating");
+              if (opened){
+                _navbarButtonsAnimationController.forward();
+                _arrowAnimationController.reverse();
+              }else{
+                _navbarButtonsAnimationController.reverse();
+                _arrowAnimationController.forward();
+              }
+              setState(() {
+                opened = !opened;
+              });
+            },),
+          ),
+        ),
 
-    ),
+      ),
       bottomNavigationBar: BottomAppBar(
 
         shape: CircularNotchedRectangle(),
@@ -88,24 +113,22 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
               ),
             ),
             Expanded(
-             child: Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                 NavItem("assets/images/navbarIcons/profile.svg" , num: 3),
-                 NavItem("assets/images/navbarIcons/clock.svg" , num: 4),
-               ],
-             ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  NavItem("assets/images/navbarIcons/profile.svg" , num: 3),
+                  NavItem("assets/images/navbarIcons/clock.svg" , num: 4),
+                ],
+              ),
             )
           ],
         ),
       ),
-      body: PageView(
-        controller: _navController,
-        onPageChanged: (int){
 
-        },
-        children: _pages,
-      ),
-    );
+    ),
+
+
+
+    ],);
   }
 }

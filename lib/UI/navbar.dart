@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
@@ -71,4 +72,79 @@ class NavItem extends UIItem{
     );
 
   }
+}
+
+class NavItemDropped extends UIItem{
+  String asset;
+  Animation<Offset> controller;
+  int num;
+  double leftMargin;
+  double bottomMargin;
+  NavItemDropped(String asset,Animation<Offset> controller,int num){
+    this.asset = asset;
+    this.controller = controller;
+    setMargins(num);
+  }
+
+  setMargins(int num){
+    if(num == 1){
+      this.leftMargin = 0.28;
+      this.bottomMargin = 0;
+    }else if (num == 2){
+      this.leftMargin = 0.435;
+      this.bottomMargin = 0.025;
+    }else if (num == 3){
+      this.leftMargin = 0.59;
+      this.bottomMargin = 0;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      Positioned(
+        bottom: displayHeight(context)*bottomMargin,
+        left: displayWidth(context)*leftMargin,
+        child: SlideTransition(
+          position: controller,
+          child: Padding(
+            padding: EdgeInsets.only(
+              bottom: displayHeight(context)*0.135,
+            ),
+            child: Stack(
+              children: [
+                Container(
+                  width: displayWidth(context)*0.12,
+                  height: displayWidth(context)*0.12,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ]
+                  ),
+                ),
+                Positioned(
+                  left: displayWidth(context)*0.03,
+                  top: displayWidth(context)*0.03,
+                  child: SvgPicture.asset(
+                    asset,
+                    width: displayWidth(context)*0.06,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+
+
+      ;
+  }
+
 }
