@@ -19,7 +19,7 @@ class   IsaNavigator extends StatefulWidget{
 class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
 
   bool opened = false;
-
+  int active;
   Animation _arrowAnimation;
   AnimationController _arrowAnimationController;
 
@@ -50,21 +50,24 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
   }
 
   //Navigator controller
-  PageController _navController = PageController(initialPage: 0);
+  PageController navController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
 
     return Stack(children: [
       PageView(
-        controller: _navController,
+        controller: navController,
         onPageChanged: (int){
-
+          setState(() {
+            active = int;
+          });
         },
         children: _pages,
       ),
-      NavItemDropped("assets/images/navbarIcons/schedule.svg",navbarButtonsAnimationoffset,1),
-      NavItemDropped("assets/images/navbarIcons/events.svg",navbarButtonsAnimationoffset,2),
-      NavItemDropped("assets/images/navbarIcons/edit.svg",navbarButtonsAnimationoffset,3),
+
+      active!=4?NavItemDropped("assets/images/navbarIcons/schedule.svg",navbarButtonsAnimationoffset,1,navController,4):NavItemDropped.active("assets/images/navbarIcons/schedule.svg",navbarButtonsAnimationoffset,1,navController,4),
+      active!=5?NavItemDropped("assets/images/navbarIcons/events.svg",navbarButtonsAnimationoffset,2,navController,5):NavItemDropped.active("assets/images/navbarIcons/events.svg",navbarButtonsAnimationoffset,2,navController,5),
+      active!=6?NavItemDropped("assets/images/navbarIcons/edit.svg",navbarButtonsAnimationoffset,3,navController,6):NavItemDropped.active("assets/images/navbarIcons/edit.svg",navbarButtonsAnimationoffset,3,navController,6),
       Scaffold(
         backgroundColor: Color.fromRGBO(255, 255, 255, 0.0),
       floatingActionButtonLocation:
@@ -81,10 +84,10 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
               child: !opened?const Icon(Icons.add):const Icon(Icons.remove), onPressed: () {
               //print("rotating");
               if (opened){
-                _navbarButtonsAnimationController.forward();
+                _navbarButtonsAnimationController.reverse();
                 _arrowAnimationController.reverse();
               }else{
-                _navbarButtonsAnimationController.reverse();
+                _navbarButtonsAnimationController.forward();
                 _arrowAnimationController.forward();
               }
               setState(() {
@@ -107,8 +110,19 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  NavItem.active("assets/images/navbarIcons/home.svg" , num: 1),
-                  NavItem("assets/images/navbarIcons/chat.svg" , num: 2),
+                  GestureDetector(
+                    onTap: (){
+                      navController.jumpToPage(0);
+                    },
+                    child: 0!=active?NavItem("assets/images/navbarIcons/home.svg" , num: 1):NavItem.active("assets/images/navbarIcons/home.svg" , num: 1),
+                  ),
+
+                  GestureDetector(
+                    onTap: (){
+                      navController.jumpToPage(1);
+                    },
+                    child: 1!=active?NavItem("assets/images/navbarIcons/chat.svg" , num: 2):NavItem.active("assets/images/navbarIcons/chat.svg" , num: 2),
+                  ),
                 ],
               ),
             ),
@@ -116,8 +130,18 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  NavItem("assets/images/navbarIcons/profile.svg" , num: 3),
-                  NavItem("assets/images/navbarIcons/clock.svg" , num: 4),
+                  GestureDetector(
+                    onTap: (){
+                      navController.jumpToPage(2);
+                    },
+                    child: 2!=active?NavItem("assets/images/navbarIcons/profile.svg" , num: 3):NavItem.active("assets/images/navbarIcons/profile.svg" , num: 3),
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      navController.jumpToPage(3);
+                    },
+                    child: 3!=active?NavItem("assets/images/navbarIcons/clock.svg" , num: 4):NavItem.active("assets/images/navbarIcons/clock.svg" , num: 4),
+                  ),
                 ],
               ),
             )

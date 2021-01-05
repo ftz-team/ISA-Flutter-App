@@ -76,13 +76,26 @@ class NavItem extends UIItem{
 
 class NavItemDropped extends UIItem{
   String asset;
+  PageController _pageController;
   Animation<Offset> controller;
   int num;
+  int page;
+  Color iconColor = Colors.black;
   double leftMargin;
   double bottomMargin;
-  NavItemDropped(String asset,Animation<Offset> controller,int num){
+  NavItemDropped(String asset,Animation<Offset> controller,int num,PageController pageController,int pageJumpTo){
     this.asset = asset;
     this.controller = controller;
+    this.page = pageJumpTo;
+    this._pageController = _pageController;
+    setMargins(num);
+  }
+  NavItemDropped.active(String asset,Animation<Offset> controller,int num,PageController pageController,int pageJumpTo){
+    this.asset = asset;
+    this.controller = controller;
+    this.page = pageJumpTo;
+    this._pageController = _pageController;
+    this.iconColor = UIcolors.primary;
     setMargins(num);
   }
 
@@ -101,50 +114,60 @@ class NavItemDropped extends UIItem{
 
   @override
   Widget build(BuildContext context) {
-    return
-      Positioned(
-        bottom: displayHeight(context)*bottomMargin,
-        left: displayWidth(context)*leftMargin,
-        child: SlideTransition(
-          position: controller,
-          child: Padding(
-            padding: EdgeInsets.only(
-              bottom: displayHeight(context)*0.135,
-            ),
-            child: Stack(
-              children: [
-                Container(
-                  width: displayWidth(context)*0.12,
-                  height: displayWidth(context)*0.12,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ]
-                  ),
+    return  Positioned(
+          bottom: displayHeight(context)*bottomMargin,
+          left: displayWidth(context)*leftMargin,
+          child:   GestureDetector(
+              onTap: (){
+                print(0);
+                print(page);
+                _pageController.jumpToPage(page);
+              },
+              child:
+          SlideTransition(
+            position: controller,
+            child: Padding(
+              padding: EdgeInsets.only(
+                bottom: displayHeight(context)*0.135,
+              ),
+              child:    Stack(
+                  children: [
+                    Container(
+                      width: displayWidth(context)*0.12,
+                      height: displayWidth(context)*0.12,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // changes position of shadow
+                            ),
+                          ]
+                      ),
+                    ),
+                    Positioned(
+                      left: displayWidth(context)*0.03,
+                      top: displayWidth(context)*0.03,
+                      child: SvgPicture.asset(
+                        asset,
+                        width: displayWidth(context)*0.06,
+                        color: iconColor,
+                      ),
+                    )
+                  ],
                 ),
-                Positioned(
-                  left: displayWidth(context)*0.03,
-                  top: displayWidth(context)*0.03,
-                  child: SvgPicture.asset(
-                    asset,
-                    width: displayWidth(context)*0.06,
-                  ),
-                )
-              ],
+
             ),
           ),
-        ),
-      );
+          )
+        );
 
 
-      ;
+
+
   }
 
 }
