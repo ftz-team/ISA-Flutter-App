@@ -81,7 +81,6 @@ class NewsTypeHeader extends UIItem {
     this._textColor = colors.yellow;
     this._text = "Опрос";
   }
-  //Test
   @override
   Widget build(BuildContext context) {
     return Container(
