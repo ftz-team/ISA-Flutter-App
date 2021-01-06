@@ -5,38 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2cbf0e-4b27-4b73-8a53-bc3c47009011" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-BlackItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-BoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-ExtraBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-ExtraBoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-ExtraLight.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-ExtraLightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-Italic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-LightItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-MediumItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-SemiBoldItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Montserrat-ThinItalic.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/OFL.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/newsicons/like.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/newsicons/likeActive.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Screens/NewsScreens/newsScreen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Screens/NewsScreens/schoolNews.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/UI/news.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/newsScreen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UI/UI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UI/UI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/navigator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/navigator.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609918951089</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="newsPage and fonts were added">
+      <created>1609931109924</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609931109924</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,7 +109,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added navigation menu" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="newsPage and fonts were added" />
+    <option name="LAST_COMMIT_MESSAGE" value="newsPage and fonts were added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -142,30 +119,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="815" y="285" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609927443957" />
-    <state x="607" y="114" key="CommitChangelistDialog2" timestamp="1609918947785">
+    <state x="607" y="114" key="CommitChangelistDialog2" timestamp="1609931106903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="607" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1609918947785" />
-    <state width="1877" height="331" key="GridCell.Tab.0.bottom" timestamp="1609930149415">
+    <state x="607" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1609931106903" />
+    <state width="1877" height="331" key="GridCell.Tab.0.bottom" timestamp="1609931348428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="331" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609930149415" />
-    <state width="1877" height="331" key="GridCell.Tab.0.center" timestamp="1609930149414">
+    <state width="1877" height="331" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609931348428" />
+    <state width="1877" height="331" key="GridCell.Tab.0.center" timestamp="1609931348428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="331" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609930149414" />
-    <state width="1877" height="331" key="GridCell.Tab.0.left" timestamp="1609930149414">
+    <state width="1877" height="331" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609931348428" />
+    <state width="1877" height="331" key="GridCell.Tab.0.left" timestamp="1609931348428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="331" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609930149414" />
-    <state width="1877" height="331" key="GridCell.Tab.0.right" timestamp="1609930149415">
+    <state width="1877" height="331" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609931348428" />
+    <state width="1877" height="331" key="GridCell.Tab.0.right" timestamp="1609931348428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="331" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609930149415" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609918956649">
+    <state width="1877" height="331" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609931348428" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1609931113773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609918956649" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609931113773" />
     <state x="92" y="92" width="1736" height="856" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1609848370423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
