@@ -87,14 +87,14 @@ class NavItemDropped extends UIItem{
     this.asset = asset;
     this.controller = controller;
     this.page = pageJumpTo;
-    this._pageController = _pageController;
+    this._pageController = pageController;
     setMargins(num);
   }
   NavItemDropped.active(String asset,Animation<Offset> controller,int num,PageController pageController,int pageJumpTo){
     this.asset = asset;
     this.controller = controller;
     this.page = pageJumpTo;
-    this._pageController = _pageController;
+    this._pageController = pageController;
     this.iconColor = UIcolors.primary;
     setMargins(num);
   }
@@ -128,7 +128,7 @@ class NavItemDropped extends UIItem{
             position: controller,
             child: Padding(
               padding: EdgeInsets.only(
-                bottom: displayHeight(context)*0.135,
+                bottom: displayHeight(context) * 0.032,
               ),
               child:    Stack(
                   children: [

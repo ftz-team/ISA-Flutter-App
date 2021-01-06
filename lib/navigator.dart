@@ -2,13 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/Screens/chatScreen.dart';
 import 'package:isa_new/Screens/liveScreen.dart';
 import 'package:isa_new/Screens/newsScreen.dart';
 import 'package:isa_new/Screens/profileScreen.dart';
-import 'package:isa_new/UI/UI.dart';
+import 'package:isa_new/UI/UI.dart' as UI;
 
 import 'UI/navbar.dart';
 
@@ -55,21 +54,7 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
 
     return Stack(children: [
-      PageView(
-        controller: navController,
-        onPageChanged: (int){
-          setState(() {
-            active = int;
-          });
-        },
-        children: _pages,
-      ),
-
-      active!=4?NavItemDropped("assets/images/navbarIcons/schedule.svg",navbarButtonsAnimationoffset,1,navController,4):NavItemDropped.active("assets/images/navbarIcons/schedule.svg",navbarButtonsAnimationoffset,1,navController,4),
-      active!=5?NavItemDropped("assets/images/navbarIcons/events.svg",navbarButtonsAnimationoffset,2,navController,5):NavItemDropped.active("assets/images/navbarIcons/events.svg",navbarButtonsAnimationoffset,2,navController,5),
-      active!=6?NavItemDropped("assets/images/navbarIcons/edit.svg",navbarButtonsAnimationoffset,3,navController,6):NavItemDropped.active("assets/images/navbarIcons/edit.svg",navbarButtonsAnimationoffset,3,navController,6),
-      Scaffold(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 0.0),
+        Scaffold(
       floatingActionButtonLocation:
       FloatingActionButtonLocation.centerDocked,
       floatingActionButton: AnimatedBuilder(
@@ -138,19 +123,47 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
                   ),
                   GestureDetector(
                     onTap: (){
-                      navController.jumpToPage(3);
-                    },
-                    child: 3!=active?NavItem("assets/images/navbarIcons/clock.svg" , num: 4):NavItem.active("assets/images/navbarIcons/clock.svg" , num: 4),
-                  ),
+                            navController.jumpToPage(3);
+                          },
+                          child: 3 != active
+                              ? NavItem("assets/images/navbarIcons/clock.svg",
+                                  num: 4)
+                              : NavItem.active(
+                                  "assets/images/navbarIcons/clock.svg",
+                                  num: 4),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
-            )
-          ],
-        ),
-      ),
-
-    ),
-
+            ),
+            body: Stack(children: [
+              PageView(
+                controller: navController,
+                onPageChanged: (int) {
+                  setState(() {
+                    active = int;
+                  });
+                },
+                children: _pages,
+              ),
+              active != 4
+                  ? NavItemDropped(UI.icons.navSchedulte,
+                      navbarButtonsAnimationoffset, 1, navController, 4)
+                  : NavItemDropped.active(UI.icons.navSchedulte,
+                      navbarButtonsAnimationoffset, 1, navController, 4),
+              active != 5
+                  ? NavItemDropped(UI.icons.navEventsIcon,
+                      navbarButtonsAnimationoffset, 2, navController, 5)
+                  : NavItemDropped.active(UI.icons.navEventsIcon,
+                      navbarButtonsAnimationoffset, 2, navController, 5),
+              active != 6
+                  ? NavItemDropped(UI.icons.navEditIcon,
+                      navbarButtonsAnimationoffset, 3, navController, 6)
+                  : NavItemDropped.active(UI.icons.navEditIcon,
+                      navbarButtonsAnimationoffset, 3, navController, 6),
+            ])),
 
 
     ],);
