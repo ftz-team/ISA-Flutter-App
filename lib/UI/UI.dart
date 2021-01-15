@@ -150,10 +150,12 @@ class PageWithTabsState extends State<PageWithTabs>
               bottom: TabBar(
                 controller: _controller,
                 indicator: UnderlineTabIndicator(
-                  borderSide: BorderSide(
-                      width: 5.0, color: ui.UIcolors.primary),
+              borderSide: BorderSide(
+                      width: displayHeight(context) * 0.005,
+                      color: ui.UIcolors.primary),
                   insets: EdgeInsets.symmetric(
                       horizontal: displayWidth(context) * 0.05),
+
 
                 ),
                 tabs: [

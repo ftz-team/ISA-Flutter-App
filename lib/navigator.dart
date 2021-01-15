@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
-import 'package:isa_new/Screens/chatScreen.dart';
 import 'package:isa_new/Screens/liveScreen.dart';
 import 'package:isa_new/Screens/profileScreen.dart';
 import 'package:isa_new/UI/UI.dart' as UI;
 
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/Screens/ChatsScreens/chatScreen.dart';
 import 'file:///D:/AndroidStudioProjects/isa_new/lib/Screens/NewsScreens/newsScreen.dart';
 
 import 'UI/navbar.dart';
@@ -138,7 +138,7 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            body: Stack(children: [
+            body: Stack(overflow: Overflow.visible, children: [
               PageView(
                 controller: navController,
                 onPageChanged: (int) {

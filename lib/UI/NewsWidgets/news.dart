@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
+import 'package:isa_new/Screens/NewsScreens/SingleNewsScreen.dart';
 import 'package:isa_new/UI/UI.dart';
+import 'package:isa_new/blocs/NewsBloc.dart';
+import 'package:isa_new/models/NewsModel.dart';
 
 class newsDateText extends UIItem {
   String date;
@@ -33,7 +36,8 @@ class likeButton extends UIItem {
     this.cnt = cnt;
   }
 
-  likeButton.active() {
+  likeButton.active(int cnt) {
+    this.cnt = cnt;
     this._asset = icons.newsLikeActiveButton;
   }
 
@@ -97,12 +101,13 @@ class NewsTypeHeader extends UIItem {
 }
 
 class NewsHeaderText extends UIItem {
-  final maxTextLen = 70;
+  final maxTextLen = 80;
   String _text;
 
   NewsHeaderText(String text) {
     if (text.length < maxTextLen) {
-      this._text = text;
+      this._text = text + " " * (maxTextLen - text.length) + "";
+      //FIXME
     } else {
       this._text = text.substring(0, maxTextLen) + "...";
     }
@@ -124,9 +129,48 @@ class NewsHeaderText extends UIItem {
   }
 }
 
-class NewsCard extends UIItem {
-  String asset =
-      "https://storage.theoryandpractice.ru/tnp/uploads/image_unit/000/156/586/image/base_87716f252d.jpg";
+class NewsCard extends StatefulWidget {
+  NewsModel NewsCardData;
+
+  NewsCard(this.NewsCardData);
+
+  NewsCardState createState() => NewsCardState(NewsCardData);
+}
+
+class NewsCardState extends State<NewsCard> {
+  NewsModel Data;
+
+  bool like() {
+    newsBloc.likeNews(Data.id);
+
+    return true;
+  }
+
+  NewsCardState(this.Data);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SingleNewsScreen(Data.id)),
+          );
+        },
+        child: NewsCardInner(Data, like));
+  }
+}
+
+class NewsCardInner extends UIItem {
+  NewsModel NewsData;
+  Function like;
+
+  NewsCardInner(NewsData, like) {
+    this.NewsData = NewsData;
+    this.like = like;
+    print(NewsData.header);
+    print(NewsData.liked);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,14 +187,15 @@ class NewsCard extends UIItem {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
+            spreadRadius: 0.6,
+            blurRadius: 5,
+            offset: Offset(0, 0), // changes position of shadow
           ),
         ],
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
+
         children: [
           Expanded(
               flex: 4,
@@ -161,7 +206,7 @@ class NewsCard extends UIItem {
                   borderRadius:
                       BorderRadius.circular(displayWidth(context) * 0.02),
                   child: Image.network(
-                    asset,
+                    NewsData.asset,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -169,15 +214,31 @@ class NewsCard extends UIItem {
           Expanded(
             flex: 11,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
+
+
               children: [
-                NewsTypeHeader.news(),
+                NewsData.type == "news" ? NewsTypeHeader.news() : NewsData
+                    .type == "poll" ? NewsTypeHeader.poll() : NewsTypeHeader
+                    .petition(),
                 NewsHeaderText(
-                    "Итоги недели иностранного языка «Новый год шагает по планете»"),
+                    NewsData.header
+                ),
                 Container(
+
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [newsDateText("2 часа назад"), likeButton(27)],
+                    children: [
+                      newsDateText(NewsData.time),
+                      GestureDetector(
+                        child: NewsData.liked ? likeButton.active(
+                            NewsData.likes) : likeButton(NewsData.likes),
+                        onTap: like,
+                      )
+
+                    ],
                   ),
                 )
               ],

@@ -115,20 +115,19 @@ class NavItemDropped extends UIItem{
   @override
   Widget build(BuildContext context) {
     return  Positioned(
-          bottom: displayHeight(context)*bottomMargin,
-          left: displayWidth(context)*leftMargin,
-          child:   GestureDetector(
-              onTap: (){
-                print(0);
-                print(page);
-                _pageController.jumpToPage(page);
-              },
-              child:
-          SlideTransition(
+          bottom: displayHeight(context) * -0.1,
+        left: displayWidth(context) * leftMargin,
+        child: GestureDetector(
+          onTap: () {
+            print(0);
+            print(page);
+            _pageController.jumpToPage(page);
+          },
+          child: SlideTransition(
             position: controller,
             child: Padding(
               padding: EdgeInsets.only(
-                bottom: displayHeight(context) * 0.032,
+                bottom: displayHeight(context) * (0.13 + bottomMargin),
               ),
               child:    Stack(
                   children: [

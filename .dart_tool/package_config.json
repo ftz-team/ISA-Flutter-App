@@ -248,6 +248,12 @@
       "languageVersion": "2.7"
     },
     {
+      "name": "rxdart",
+      "rootUri": "file:///C:/flutter/Flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.25.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "shared_preferences",
       "rootUri": "file:///C:/flutter/Flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.12+4",
       "packageUri": "lib/",
@@ -362,7 +368,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-01-06T10:47:50.146122Z",
+  "generated": "2021-01-12T19:47:27.216694Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }
