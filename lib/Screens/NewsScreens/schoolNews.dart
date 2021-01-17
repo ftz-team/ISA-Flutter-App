@@ -29,29 +29,16 @@ class schoolNewsState extends State<schoolNews> {
           }
           return Center(child: CircularProgressIndicator());
         });
-    ListView(
-      shrinkWrap: true,
-      children: [
-        NewsCard(NewsModel.fromJson({
-          "header": 'Заголовок',
-          "asset":
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOuYqrXUba_fWeymUBiMWE0zel0s9LlNSCwQ&usqp=CAU',
-          "likes": 23,
-          "who_liked": [1, 2, 3, 4],
-          "time": "21.02.2002",
-          "type": 'news',
-          "id": 23,
-          "liked": true,
-        })),
-      ],
-    );
   }
 }
 
 Widget buildNewsList(List modelsList) {
+  print("building");
   return ListView(
     children: [
-      for (var i in modelsList) NewsCard(i)
+      for (var i in modelsList) NewsCardInner(i, () {
+        newsBloc.likeNews(i.id);
+      })
     ],
   );
 }

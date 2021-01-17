@@ -40,4 +40,6 @@ class NewsModel extends AbstractIsaModel {
   bool get liked => _liked;
 
   set liked(bool liked) => _liked = liked;
+
+  set likes(int likes) => _likes = likes;
 }

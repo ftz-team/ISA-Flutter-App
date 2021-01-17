@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
-import 'package:isa_new/Screens/NewsScreens/SingleNewsScreen.dart';
 import 'package:isa_new/UI/UI.dart';
-import 'package:isa_new/blocs/NewsBloc.dart';
 import 'package:isa_new/models/NewsModel.dart';
 
 class newsDateText extends UIItem {
@@ -129,37 +127,7 @@ class NewsHeaderText extends UIItem {
   }
 }
 
-class NewsCard extends StatefulWidget {
-  NewsModel NewsCardData;
 
-  NewsCard(this.NewsCardData);
-
-  NewsCardState createState() => NewsCardState(NewsCardData);
-}
-
-class NewsCardState extends State<NewsCard> {
-  NewsModel Data;
-
-  bool like() {
-    newsBloc.likeNews(Data.id);
-
-    return true;
-  }
-
-  NewsCardState(this.Data);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SingleNewsScreen(Data.id)),
-          );
-        },
-        child: NewsCardInner(Data, like));
-  }
-}
 
 class NewsCardInner extends UIItem {
   NewsModel NewsData;
@@ -170,6 +138,7 @@ class NewsCardInner extends UIItem {
     this.like = like;
     print(NewsData.header);
     print(NewsData.liked);
+    print(NewsData.likes);
   }
 
   @override
