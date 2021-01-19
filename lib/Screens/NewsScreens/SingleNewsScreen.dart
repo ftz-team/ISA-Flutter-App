@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/UI/NewsWidgets/newsPageWidgets.dart';
+import 'package:isa_new/UI/UI.dart';
+import 'package:isa_new/UI/UIHelpers.dart';
 import 'package:isa_new/models/NewsExtendedModel.dart';
 
 class SingleNewsScreen extends StatefulWidget {
@@ -44,13 +45,7 @@ class SingleNewsScreenState extends State<SingleNewsScreen> {
                   right: displayWidth(context) * 0.025),
               child: ListView(
                 children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                        top: displayHeight(context) * 0.02,
-                        bottom: displayHeight(context) * 0.03),
-                    alignment: Alignment.topLeft,
-                    child: SvgPicture.asset("assets/images/backButton.svg"),
-                  ),
+                  backButton(),
                   Row(
                     children: [
                       Expanded(
@@ -58,7 +53,15 @@ class SingleNewsScreenState extends State<SingleNewsScreen> {
                         child: Row(
                           children: [newsPageAuthorImage(data.asset)],
                         ),
-                      )
+                      ),
+                      Expanded(
+                          flex: 3,
+                          child: Container(
+                            child: Text(
+                              "Тестовый заголовок",
+                              style: UITypography.h2(context),
+                            ),
+                          ))
                     ],
                   )
                 ],

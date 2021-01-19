@@ -15,15 +15,11 @@ class NewsBloc {
     for (int i = 0; i < _news.length; i++) {
       if (id == _news[i].id) {
         _news[i].liked = !_news[i].liked;
-        print("18 line NewsBloc");
-        print(_news[i].likes);
-
         if (_news[i].liked) {
           _news[i].likes = _news[i].likes + 1;
         } else {
           _news[i].likes = _news[i].likes - 1;
         }
-        print(_news[i].likes);
         break;
       }
     }

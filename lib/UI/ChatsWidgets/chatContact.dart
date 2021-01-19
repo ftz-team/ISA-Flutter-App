@@ -56,7 +56,7 @@ class chatContactActive extends UIItem {
       child: Text(
         "В сети",
         style: TextStyle(
-            color: colors.primary,
+            color: UIColors.primary,
             fontWeight: FontWeight.w500,
             fontFamily: font,
             fontSize: displayWidth(context) * 0.035),

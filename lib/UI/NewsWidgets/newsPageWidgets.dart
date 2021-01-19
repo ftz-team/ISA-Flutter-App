@@ -21,3 +21,10 @@ class newsPageAuthorImage extends UIItem {
     );
   }
 }
+
+class newsPageAuthorName extends UIItem {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

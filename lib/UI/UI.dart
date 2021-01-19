@@ -9,14 +9,14 @@ class UI{
 }
 
 class UIColors {
-  final primary = Color(0xff2f8add);
-  final black = Colors.black;
-  final yellow = Color(0xffFFB73E);
-  final disabled = Color(0xffA8A7A7);
-  final semiRed = Color(0xffFF5D5D);
-  final red = Color(0xffFF003A);
-  final defaultBackground = Color(0xffF9F9F9);
-  final newsCardBackground = Color(0xffFEFEFE);
+  static const primary = Color(0xff2f8add);
+  static const black = Colors.black;
+  static const yellow = Color(0xffFFB73E);
+  static const disabled = Color(0xffA8A7A7);
+  static const semiRed = Color(0xffFF5D5D);
+  static const red = Color(0xffFF003A);
+  static const defaultBackground = Color(0xffF9F9F9);
+  static const newsCardBackground = Color(0xffFEFEFE);
 }
 
 class UIIcons {
@@ -26,7 +26,31 @@ class UIIcons {
   final String navSchedulte = "assets/images/navbarIcons/schedule.svg";
   final String newsLikeButton = "assets/images/newsIcons/like.svg";
   final String newsLikeActiveButton = "assets/images/newsIcons/likeActive.svg";
+  final String backButton = "assets/images/backButton.svg";
 }
+
+class UITypography {
+  // H1 - Figma 20px font
+  static TextStyle h1(BuildContext context, [Color color = UIColors.black]) {
+    return TextStyle(
+        color: color,
+        fontFamily: ui.font,
+        fontWeight: FontWeight.w700,
+        fontSize: displayWidth(context) * 0.055
+    );
+  }
+
+  //H2 - Figma 18px font
+  static TextStyle h2(BuildContext context, [Color color = UIColors.black]) {
+    return TextStyle(
+        color: color,
+        fontFamily: ui.font,
+        fontWeight: FontWeight.w700,
+        fontSize: displayWidth(context) * 0.05
+    );
+  }
+}
+
 
 abstract class UIItem extends StatelessWidget with UI {
   @override
@@ -58,7 +82,7 @@ class AppBarTextHeader extends UIItem {
       style: TextStyle(
           fontWeight: FontWeight.bold,
           fontFamily: font,
-          color: colors.black
+          color: UIColors.black
 
       ),
     );
@@ -72,13 +96,13 @@ class TabBarTabItem extends UIItem {
 
   TabBarTabItem(String text) {
     this.text = text;
-    this.textColor = colors.black;
+    this.textColor = UIColors.black;
     this.fontWeight = FontWeight.w600;
   }
 
   TabBarTabItem.disabled(String text){
     this.text = text;
-    this.textColor = colors.disabled;
+    this.textColor = UIColors.disabled;
     this.fontWeight = FontWeight.w400;
   }
 
@@ -142,7 +166,7 @@ class PageWithTabsState extends State<PageWithTabs>
     return Scaffold(
       body: Container(
           child: Scaffold(
-            backgroundColor: UIcolors.defaultBackground,
+            backgroundColor: UIColors.defaultBackground,
             appBar: AppBar(
               backgroundColor: Colors.white,
               centerTitle: true,
@@ -150,9 +174,9 @@ class PageWithTabsState extends State<PageWithTabs>
               bottom: TabBar(
                 controller: _controller,
                 indicator: UnderlineTabIndicator(
-              borderSide: BorderSide(
+                  borderSide: BorderSide(
                       width: displayHeight(context) * 0.005,
-                      color: ui.UIcolors.primary),
+                      color: UIColors.primary),
                   insets: EdgeInsets.symmetric(
                       horizontal: displayWidth(context) * 0.05),
 

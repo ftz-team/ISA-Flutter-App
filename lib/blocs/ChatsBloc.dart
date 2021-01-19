@@ -10,13 +10,13 @@ class ChatsBloc {
   Stream<ChatModel> get weather => _chatsFetcher.stream;
 
   fetchLondonWeather() async {
-    ChatModel weatherResponse = await _repository.fetchLondonWeather();
-    _weatherFetcher.sink.add(weatherResponse);
+    //ChatModel weatherResponse = await _repository.fetchLondonWeather();
+    //_weatherFetcher.sink.add(weatherResponse);
   }
 
   dispose() {
     //Close the weather fetcher
-    _weatherFetcher.close();
+    //_weatherFetcher.close();
   }
 }
 

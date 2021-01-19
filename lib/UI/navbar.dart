@@ -42,12 +42,12 @@ class NavItem extends UIItem{
 
   NavItem(String asset,{int num = 1}){
     this.asset = asset;
-    color = UIcolors.black;
+    color = UIColors.black;
     setMargins(num);
   }
   NavItem.active(String asset,{int num = 1}){
     this.asset = asset;
-    color = UIcolors.primary;
+    color = UIColors.primary;
     setMargins(num);
   }
 
@@ -95,7 +95,7 @@ class NavItemDropped extends UIItem{
     this.controller = controller;
     this.page = pageJumpTo;
     this._pageController = pageController;
-    this.iconColor = UIcolors.primary;
+    this.iconColor = UIColors.primary;
     setMargins(num);
   }
 

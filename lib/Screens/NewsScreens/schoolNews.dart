@@ -33,7 +33,6 @@ class schoolNewsState extends State<schoolNews> {
 }
 
 Widget buildNewsList(List modelsList) {
-  print("building");
   return ListView(
     children: [
       for (var i in modelsList) NewsCardInner(i, () {
