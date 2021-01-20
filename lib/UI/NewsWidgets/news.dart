@@ -26,6 +26,26 @@ class newsDateText extends UIItem {
   }
 }
 
+class likeIcon extends UIItem {
+  String _asset;
+
+  likeIcon() {
+    this._asset = icons.newsLikeButton;
+  }
+
+  likeIcon.active() {
+    this._asset = icons.newsLikeActiveButton;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      _asset,
+      width: displayWidth(context) * 0.055,
+    );
+  }
+}
+
 class likeButton extends UIItem {
   String _asset;
   int cnt;

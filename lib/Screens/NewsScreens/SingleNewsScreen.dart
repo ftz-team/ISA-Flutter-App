@@ -47,21 +47,54 @@ class SingleNewsScreenState extends State<SingleNewsScreen> {
                 children: [
                   backButton(),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        flex: 3,
-                        child: Row(
-                          children: [newsPageAuthorImage(data.asset)],
-                        ),
-                      ),
-                      Expanded(
-                          flex: 3,
-                          child: Container(
-                            child: Text(
-                              "Тестовый заголовок",
-                              style: UITypography.h2(context),
+                      Row(
+                        children: [
+                          newsPageAuthorImage(data.asset),
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "Ушакова М.В.",
+                                    style: UITypography.h3(context),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      top: displayHeight(context) * 0.005),
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "учитель англ. языка",
+                                    style: UITypography.h4(context),
+                                  ),
+                                )
+                              ],
                             ),
-                          ))
+                            margin: EdgeInsets.only(
+                                left: displayWidth(context) * 0.02),
+                          )
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "26 декабря 2020",
+                              style: UITypography.h4(context,
+                                  color: UIColors.disabled),
+                            ),
+                          ),
+                          Container(
+                              alignment: Alignment.topLeft,
+                              child: newsPageLikeButton())
+                        ],
+                      ),
                     ],
                   )
                 ],

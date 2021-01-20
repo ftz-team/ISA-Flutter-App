@@ -17,6 +17,7 @@ class UIColors {
   static const red = Color(0xffFF003A);
   static const defaultBackground = Color(0xffF9F9F9);
   static const newsCardBackground = Color(0xffFEFEFE);
+  static const likeBackground = Color(0xffffe7dc);
 }
 
 class UIIcons {
@@ -36,8 +37,7 @@ class UITypography {
         color: color,
         fontFamily: ui.font,
         fontWeight: FontWeight.w700,
-        fontSize: displayWidth(context) * 0.055
-    );
+        fontSize: displayWidth(context) * 0.055);
   }
 
   //H2 - Figma 18px font
@@ -46,8 +46,25 @@ class UITypography {
         color: color,
         fontFamily: ui.font,
         fontWeight: FontWeight.w700,
-        fontSize: displayWidth(context) * 0.05
-    );
+        fontSize: displayWidth(context) * 0.045);
+  }
+
+  //H3 - Figma 14px
+  static TextStyle h3(BuildContext context, [Color color = UIColors.black]) {
+    return TextStyle(
+        color: color,
+        fontFamily: ui.font,
+        fontWeight: FontWeight.w700,
+        fontSize: displayWidth(context) * 0.035);
+  }
+
+  //H4 - Figma 12px
+  static TextStyle h4(BuildContext context, {Color color = UIColors.black}) {
+    return TextStyle(
+        color: color,
+        fontFamily: ui.font,
+        fontWeight: FontWeight.w400,
+        fontSize: displayWidth(context) * 0.032);
   }
 }
 
