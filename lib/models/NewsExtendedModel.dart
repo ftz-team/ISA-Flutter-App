@@ -1,22 +1,27 @@
+import 'package:flutter/material.dart';
+
 import '../models/AbstractModel.dart';
 
 class NewsExtendedModel extends AbstractIsaModel {
   int _id;
   String _header;
-  String _asset;
+  Image _asset;
   int _likes;
   String _text;
+  String _author;
   List<int> _who_liked;
   String _time;
   String _type;
   bool _liked;
   bool _pinned;
   int _poll;
-
+  String _authorStatus;
+  String _authorUrl;
   int _comments;
 
   NewsExtendedModel.fromJson(parsedJson) {
     _header = parsedJson['header'];
+
     _asset = parsedJson['asset'];
     _likes = parsedJson['likes'];
     _who_liked = parsedJson['who_liked'];
@@ -27,15 +32,26 @@ class NewsExtendedModel extends AbstractIsaModel {
     _text = parsedJson['text'];
     _pinned = parsedJson['pinned'];
     _comments = parsedJson['comments'];
+    _author = parsedJson['author'];
+    _authorStatus = parsedJson['authorStatus'];
+    _authorUrl = parsedJson['authorUrl'];
   }
 
   int get id => _id;
 
   String get header => _header;
 
-  String get asset => _asset;
+  String get author => _author;
+
+  String get authorStatus => _authorStatus;
+
+  String get authorUrl => _authorUrl;
+
+  Image get asset => _asset;
 
   int get likes => _likes;
+
+  set likes(int likes) => _likes = likes;
 
   List get who_liked => _who_liked;
 
@@ -44,6 +60,8 @@ class NewsExtendedModel extends AbstractIsaModel {
   String get type => _type;
 
   bool get liked => _liked;
+
+  set liked(bool liked) => _liked = liked;
 
   String get text => _text;
 
