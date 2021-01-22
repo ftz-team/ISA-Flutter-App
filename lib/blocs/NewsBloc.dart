@@ -1,3 +1,4 @@
+import 'package:isa_new/globals.dart' as globals;
 import 'package:isa_new/models/NewsModel.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -10,15 +11,23 @@ class NewsBloc {
 
   Stream<List<NewsModel>> get news => _newsFetcher.stream;
 
-  likeNews(int id) {
-    //TODO call api with id
+  likeNews(int id) async {
     for (int i = 0; i < _news.length; i++) {
       if (id == _news[i].id) {
         _news[i].liked = !_news[i].liked;
         if (_news[i].liked) {
           _news[i].likes = _news[i].likes + 1;
+
+          var response = await globals.API.news.likePost(postid: id);
+          if (response['ok']) {
+            _news[i].likes = response['response']['likes_count'];
+          }
         } else {
           _news[i].likes = _news[i].likes - 1;
+          var response = await globals.API.news.unlikePost(postid: id);
+          if (response['ok']) {
+            _news[i].likes = response['response']['likes_count'];
+          }
         }
         break;
       }
@@ -29,34 +38,7 @@ class NewsBloc {
   fetchNews() async {
     //TODO call api with globals.API
 
-    _news = await [
-      NewsModel.fromJson(
-        {
-          "header": "Заголовок",
-          "asset":
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOuYqrXUba_fWeymUBiMWE0zel0s9LlNSCwQ&usqp=CAU",
-          "likes": 25,
-          "who_liked": [1, 2, 5, 21],
-          "time": "21.03.2019",
-          "type": "news",
-          "id": 1,
-          "liked": false
-        },
-      ),
-      NewsModel.fromJson(
-        {
-          "header": "Опрос сосос",
-          "asset":
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOuYqrXUba_fWeymUBiMWE0zel0s9LlNSCwQ&usqp=CAU",
-          "likes": 15,
-          "who_liked": [1, 2, 5, 21],
-          "time": "21.03.2019",
-          "type": "poll",
-          "id": 2,
-          "liked": true
-        },
-      ),
-    ];
+    _news = await globals.API.news.get(last: 0, step: 4);
     _newsFetcher.sink.add(_news);
   }
 

@@ -27,9 +27,15 @@ String normalS(DateTime date) {
 }
 
 String dmy(DateTime date) {
-  return date.day.toString() +
-      "." +
-      date.month.toString() +
-      "." +
-      date.year.toString().substring(2);
+  String day, month, year;
+  day = date.day.toString();
+  month = date.month.toString();
+  year = date.year.toString();
+  if (day.length < 2) {
+    day = "0" + day;
+  }
+  if (month.length < 2) {
+    month = "0" + month;
+  }
+  return day + "." + month + "." + year.substring(2);
 }

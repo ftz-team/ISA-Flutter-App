@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -104,6 +105,7 @@ class NewsTypeHeader extends UIItem {
     this._textColor = UIColors.yellow;
     this._text = "Опрос";
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -147,7 +149,6 @@ class NewsHeaderText extends UIItem {
     );
   }
 }
-
 
 
 class NewsCardInner extends UIItem {
@@ -198,8 +199,11 @@ class NewsCardInner extends UIItem {
                   child: ClipRRect(
                     borderRadius:
                         BorderRadius.circular(displayWidth(context) * 0.02),
-                    child: Image.network(
-                      NewsData.asset,
+                    child: CachedNetworkImage(
+                      imageUrl: NewsData.asset,
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -211,11 +215,11 @@ class NewsCardInner extends UIItem {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  NewsData.type == "news"
+                  NewsData.type == "post"
                       ? NewsTypeHeader.news()
                       : NewsData.type == "poll"
-                          ? NewsTypeHeader.poll()
-                          : NewsTypeHeader.petition(),
+                      ? NewsTypeHeader.poll()
+                      : NewsTypeHeader.petition(),
                   NewsHeaderText(NewsData.header),
                   Container(
                     child: Row(

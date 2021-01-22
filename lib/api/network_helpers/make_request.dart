@@ -19,7 +19,7 @@ Future<Map> makeGetRequest({String endpoint, Map data, String token}) async {
       headers: {"Authorization": "Token " + token});
 
   var rj = json.decode(utf8.decode(response.bodyBytes));
-  //print(config.base_url+endpoint+dataString);
+  print(config.base_url + endpoint + dataString);
   if (!IsSuccessStatusCode(response.statusCode)) {
     return {"ok": false, "response": rj};
   } else {
