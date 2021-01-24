@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/AbstractModel.dart';
+import '../AbstractModel.dart';
 
 class NewsExtendedModel extends AbstractIsaModel {
   int _id;

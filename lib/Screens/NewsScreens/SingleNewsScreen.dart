@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
+import 'package:isa_new/UI/NewsWidgets/newsComments.dart';
 import 'package:isa_new/UI/NewsWidgets/newsPageWidgets.dart';
 import 'package:isa_new/UI/UI.dart';
 import 'package:isa_new/UI/UIHelpers.dart';
 import 'package:isa_new/blocs/SingleNewsBloc.dart';
-import 'package:isa_new/models/NewsExtendedModel.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/newsModels/NewsExtendedModel.dart';
 
 class SingleNewsScreen extends StatefulWidget {
   int newsId;
@@ -17,6 +19,13 @@ class SingleNewsScreen extends StatefulWidget {
 
 class SingleNewsScreenState extends State<SingleNewsScreen> {
   int newsId;
+  bool _commentsOpened = false;
+
+  void toogleComments() {
+    setState(() {
+      _commentsOpened = !_commentsOpened;
+    });
+  }
 
   SingleNewsScreenState(this.newsId);
 
@@ -127,39 +136,44 @@ class SingleNewsScreenState extends State<SingleNewsScreen> {
                         ),
                       ),
                     ),
-                    bottomPanel(Align(
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: displayHeight(context) * 0.012,
-                            ),
-                            width: displayWidth(context) * 0.45,
-                            height: displayHeight(context) * 0.0633,
-                            decoration: BoxDecoration(
-                              color: UIColors.semiBlue,
-                              borderRadius: BorderRadius.circular(
-                                  displayWidth(context) * 0.06),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 2,
-                                  blurRadius: 3,
-                                  offset: Offset(
-                                      0, 3), // changes position of shadow
-                                ),
+                    _commentsOpened
+                        ? newsComments(snapshot.data.id, toogleComments)
+                        : bottomPanel(Align(
+                            alignment: Alignment.center,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                GestureDetector(
+                                  onTap: toogleComments,
+                                  child: Container(
+                                    padding: EdgeInsets.only(
+                                      top: displayHeight(context) * 0.012,
+                                    ),
+                                    width: displayWidth(context) * 0.45,
+                                    height: displayHeight(context) * 0.0633,
+                                    decoration: BoxDecoration(
+                                      color: UIColors.semiBlue,
+                                      borderRadius: BorderRadius.circular(
+                                          displayWidth(context) * 0.06),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          spreadRadius: 2,
+                                          blurRadius: 3,
+                                          offset: Offset(0,
+                                              3), // changes position of shadow
+                                        ),
+                                      ],
+                                    ),
+                                    child: Text(
+                                      "35 комментариев",
+                                      style: UITypography.h3(context,
+                                          color: UIColors.primary),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                )
                               ],
-                            ),
-                            child: Text(
-                              "35 комментариев",
-                              style: UITypography.h3(context,
-                                  color: UIColors.primary),
-                              textAlign: TextAlign.center,
-                            ),
-                          )
-                        ],
                       ),
                     ))
                   ],

@@ -1,5 +1,6 @@
 import 'package:isa_new/api/dateHelpers.dart';
-import 'package:isa_new/models/NewsModel.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/newsModels/NewsModel.dart';
 
 import '../network_helpers/make_request.dart';
 import 'Comments.dart';
@@ -33,8 +34,16 @@ class News {
             }
           }
         }
-        response['response'][i]['liked'] = true;
+        if (response['response'][i].containsKey('is_liked')) {
+          response['response'][i]['liked'] =
+              response['response'][i]['is_liked'];
+        } else {
+          response['response'][i]['liked'] = false;
+        }
+
         //TODO replace with data from api
+        response['response'][i]['image'] =
+            "https://cms.hostelworld.com/hwblog/wp-content/uploads/sites/2/2018/12/kirkjufell.jpg";
         response['response'][i]['time'] = dmy(DateTime.parse(newDate));
 
         newsList.add(NewsModel.fromJson(response['response'][i]));

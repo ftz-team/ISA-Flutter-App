@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/UI/NewsWidgets/news.dart';
 import 'package:isa_new/blocs/NewsBloc.dart';
-import 'package:isa_new/models/NewsModel.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/newsModels/NewsModel.dart';
 
 class schoolNews extends StatefulWidget {
   schoolNewsState createState() => schoolNewsState();

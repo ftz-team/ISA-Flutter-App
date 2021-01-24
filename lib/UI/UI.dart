@@ -29,6 +29,7 @@ class UIIcons {
   final String newsLikeButton = "assets/images/newsIcons/like.svg";
   final String newsLikeActiveButton = "assets/images/newsIcons/likeActive.svg";
   final String backButton = "assets/images/backButton.svg";
+  final String cancelButton = "assets/images/cancel.svg";
 }
 
 class UITypography {

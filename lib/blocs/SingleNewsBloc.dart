@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:isa_new/models/NewsExtendedModel.dart';
 import 'package:rxdart/rxdart.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/newsModels/NewsExtendedModel.dart';
 
 class SingleNewsBloc {
   NewsExtendedModel _news;
+  bool _commentsOpened;
 
   SingleNewsBloc() {}
 
@@ -38,10 +40,14 @@ class SingleNewsBloc {
       'author': "Ушакова М.Г.",
       'authorStatus': "учитель англ. языка",
       'authorUrl':
-          "https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png",
+      "https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png",
     });
-    print("YADAUN");
+    //print("YADAUN");
     _newsFetcher.sink.add(_news);
+  }
+
+  void toogleComments() {
+    _commentsOpened = !_commentsOpened;
   }
 
   int likeNews(int id) {

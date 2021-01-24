@@ -1,4 +1,4 @@
-import '../models/AbstractModel.dart';
+import '../AbstractModel.dart';
 
 class NewsModel extends AbstractIsaModel {
   int _id;

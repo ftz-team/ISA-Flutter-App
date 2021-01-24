@@ -5,7 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/Screens/NewsScreens/SingleNewsScreen.dart';
 import 'package:isa_new/UI/UI.dart';
-import 'package:isa_new/models/NewsModel.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/newsModels/NewsModel.dart';
 
 class newsDateText extends UIItem {
   String date;
@@ -221,20 +222,24 @@ class NewsCardInner extends UIItem {
                       ? NewsTypeHeader.poll()
                       : NewsTypeHeader.petition(),
                   NewsHeaderText(NewsData.header),
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        newsDateText(NewsData.time),
-                        GestureDetector(
-                          child: NewsData.liked
-                              ? likeButton.active(NewsData.likes)
-                              : likeButton(NewsData.likes),
-                          onTap: like,
+                  NewsData.type == "post"
+                      ? Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              newsDateText(NewsData.time),
+                              GestureDetector(
+                                child: NewsData.liked
+                                    ? likeButton.active(NewsData.likes)
+                                    : likeButton(NewsData.likes),
+                                onTap: like,
+                              )
+                            ],
+                          ),
                         )
-                      ],
-                    ),
-                  )
+                      : Container(
+                          child: null,
+                        )
                 ],
               ),
             )
@@ -242,5 +247,13 @@ class NewsCardInner extends UIItem {
         ),
       ),
     );
+  }
+}
+
+
+class UIFilter extends UIItem {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

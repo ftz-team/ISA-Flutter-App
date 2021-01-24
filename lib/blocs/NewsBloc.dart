@@ -1,6 +1,7 @@
 import 'package:isa_new/globals.dart' as globals;
-import 'package:isa_new/models/NewsModel.dart';
 import 'package:rxdart/rxdart.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/newsModels/NewsModel.dart';
 
 class NewsBloc {
   List<NewsModel> _news;
@@ -37,6 +38,7 @@ class NewsBloc {
 
   fetchNews() async {
     //TODO call api with globals.API
+    //TODO add UIFILTER
 
     _news = await globals.API.news.get(last: 0, step: 4);
     _newsFetcher.sink.add(_news);
