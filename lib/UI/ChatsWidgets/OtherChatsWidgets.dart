@@ -89,11 +89,7 @@ class chatCardLastMsg extends UIItem {
         width: displayWidth(context) * 0.7,
         child: Text(
           text,
-          style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontFamily: font,
-              color: Color(0xff515151),
-              fontSize: displayWidth(context) * 0.035),
+          style: UITypography.h4(context, weight: FontWeight.w500),
         ));
   }
 }

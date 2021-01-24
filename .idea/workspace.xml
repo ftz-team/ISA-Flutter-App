@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2cbf0e-4b27-4b73-8a53-bc3c47009011" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/cancel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/blocs/NewsCommentsBloc.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/newsModels/NewsCommentModel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/blocs/chatBlocs/ContactsBloc.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/blocs/chatBlocs/DialogsBloc.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/NewsScreens/SingleNewsScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/NewsScreens/SingleNewsScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/NewsScreens/schoolNews.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/NewsScreens/schoolNews.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UI/NewsWidgets/news.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UI/NewsWidgets/news.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UI/NewsWidgets/newsComments.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UI/NewsWidgets/newsComments.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/UI/UI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UI/UI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/News/News.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/News/News.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/NewsBloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/blocs/NewsBloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/NewsLikeBloc.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/blocs/SingleNewsBloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/blocs/SingleNewsBloc.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/NewsExtendedModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/newsModels/NewsExtendedModel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/NewsModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/newsModels/NewsModel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/PollModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/newsModels/PollModel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/ChatsScreens/ContactsPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/ChatsScreens/ContactsPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/ChatsScreens/DialogsPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/ChatsScreens/DialogsPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/UI/ChatsWidgets/OtherChatsWidgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UI/ChatsWidgets/OtherChatsWidgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/UI/ChatsWidgets/chatContact.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UI/ChatsWidgets/chatContact.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/blocs/ChatsBloc.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,11 +49,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AndroidStudioProjects\isa_new\lib\blocs\chatBlocs" />
       <recent name="D:\AndroidStudioProjects\isa_new\lib\models\newsModels" />
       <recent name="D:\AndroidStudioProjects\isa_new\lib\UI\NewsWidgets" />
       <recent name="D:\AndroidStudioProjects\isa_new\lib\UI\ChatsWidgets" />
       <recent name="D:\AndroidStudioProjects\isa_new\lib\Screens\ChatsScreens" />
-      <recent name="D:\AndroidStudioProjects\isa_new\lib\Screens\NewsScreens" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -159,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611282876250</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added comments, fixes">
+      <created>1611527826484</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611527826484</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,7 +183,8 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="added newspage" />
     <MESSAGE value="newspage connected with backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="newspage connected with backend" />
+    <MESSAGE value="added comments, fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments, fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -197,34 +197,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="815" y="285" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611248687473" />
-    <state x="335" y="95" key="CommitChangelistDialog2" timestamp="1611282871720">
+    <state x="335" y="95" key="CommitChangelistDialog2" timestamp="1611527822351">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="335" y="95" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1611282871720" />
+    <state x="335" y="95" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1611527822351" />
     <state x="182" y="86" key="DiffContextDialog" timestamp="1610548041587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="182" y="86" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1610548041587" />
-    <state width="1877" height="448" key="GridCell.Tab.0.bottom" timestamp="1611527598235">
+    <state width="1877" height="444" key="GridCell.Tab.0.bottom" timestamp="1611531223814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1611164241565" />
-    <state width="1877" height="448" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611527598235" />
-    <state width="1877" height="448" key="GridCell.Tab.0.center" timestamp="1611527598235">
+    <state width="1877" height="444" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1611531223814" />
+    <state width="1877" height="444" key="GridCell.Tab.0.center" timestamp="1611531223814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1611164241565" />
-    <state width="1877" height="448" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611527598235" />
-    <state width="1877" height="448" key="GridCell.Tab.0.left" timestamp="1611527598235">
+    <state width="1877" height="444" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1611531223814" />
+    <state width="1877" height="444" key="GridCell.Tab.0.left" timestamp="1611531223813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1611164241565" />
-    <state width="1877" height="448" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611527598235" />
-    <state width="1877" height="448" key="GridCell.Tab.0.right" timestamp="1611527598235">
+    <state width="1877" height="444" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1611531223813" />
+    <state width="1877" height="444" key="GridCell.Tab.0.right" timestamp="1611531223814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1611164241565" />
-    <state width="1877" height="448" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611527598235" />
+    <state width="1877" height="444" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1611531223814" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1611527782201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -233,10 +233,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="681" y="260" width="540" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1610715126525" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611282877753">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611527829556">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611282877753" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611527829556" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1611243893804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -246,10 +246,10 @@
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1611162608237" />
     <state x="92" y="92" width="1736" height="856" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611517882640" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1611527766801">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1611530480491">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611527766801" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611530480491" />
     <state x="749" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609924547173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -258,10 +258,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611524096787" />
-    <state x="616" y="172" width="672" height="676" key="search.everywhere.popup" timestamp="1611518072779">
+    <state x="616" y="172" width="672" height="676" key="search.everywhere.popup" timestamp="1611531374488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="172" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1611164542100" />
-    <state x="616" y="172" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611518072779" />
+    <state x="616" y="172" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611531374488" />
   </component>
 </project>

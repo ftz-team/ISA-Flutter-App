@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/UI/ChatsWidgets/OtherChatsWidgets.dart';
@@ -29,7 +30,7 @@ class chatContact extends UIItem {
                   flex: 10,
                   child: Container(
                     margin:
-                        EdgeInsets.only(left: displayWidth(context) * 0.036),
+                    EdgeInsets.only(left: displayWidth(context) * 0.036),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -53,11 +54,12 @@ class chatContactActive extends UIItem {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(top: displayHeight(context) * 0.03),
       child: Text(
         "В сети",
         style: TextStyle(
             color: UIColors.primary,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
             fontFamily: font,
             fontSize: displayWidth(context) * 0.035),
       ),
