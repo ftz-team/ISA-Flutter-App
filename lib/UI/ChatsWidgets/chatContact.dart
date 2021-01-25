@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/UI/ChatsWidgets/OtherChatsWidgets.dart';
-import 'package:isa_new/models/ChatContactModel.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/chatModels/ChatContactModel.dart';
 
 import '../UI.dart';
 
@@ -54,7 +55,7 @@ class chatContactActive extends UIItem {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: displayHeight(context) * 0.03),
+      margin: EdgeInsets.only(top: displayHeight(context) * 0.01),
       child: Text(
         "В сети",
         style: TextStyle(

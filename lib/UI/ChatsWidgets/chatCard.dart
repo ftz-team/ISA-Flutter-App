@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/UI/UI.dart';
-import 'package:isa_new/models/ChatModel.dart';
+import 'package:isa_new/models/chatModels/ChatModel.dart';
 
 import 'OtherChatsWidgets.dart';
 
@@ -14,6 +14,7 @@ class chatCard extends UIItem {
   @override
   Widget build(BuildContext context) {
     return Container(
+        decoration: BoxDecoration(color: Colors.white),
         margin: EdgeInsets.only(
             top: displayHeight(context) * 0.013,
             left: displayWidth(context) * 0.025,

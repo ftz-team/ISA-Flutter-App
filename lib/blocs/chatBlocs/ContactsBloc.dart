@@ -1,5 +1,6 @@
-import 'package:isa_new/models/ChatContactModel.dart';
 import 'package:rxdart/rxdart.dart';
+
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/models/chatModels/ChatContactModel.dart';
 
 class ContactsBloc {
   List<ChatContactsModel> _contacts;

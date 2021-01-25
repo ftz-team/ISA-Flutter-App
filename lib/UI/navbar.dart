@@ -80,22 +80,29 @@ class NavItemDropped extends UIItem{
   Animation<Offset> controller;
   int num;
   int page;
+  Function toogleOpened;
   Color iconColor = Colors.black;
   double leftMargin;
   double bottomMargin;
-  NavItemDropped(String asset,Animation<Offset> controller,int num,PageController pageController,int pageJumpTo){
+
+  NavItemDropped(String asset, Animation<Offset> controller, int num,
+      PageController pageController, int pageJumpTo, Function toogle) {
     this.asset = asset;
     this.controller = controller;
     this.page = pageJumpTo;
     this._pageController = pageController;
+    this.toogleOpened = toogle;
     setMargins(num);
   }
-  NavItemDropped.active(String asset,Animation<Offset> controller,int num,PageController pageController,int pageJumpTo){
+
+  NavItemDropped.active(String asset, Animation<Offset> controller, int num,
+      PageController pageController, int pageJumpTo, Function toogle) {
     this.asset = asset;
     this.controller = controller;
     this.page = pageJumpTo;
     this._pageController = pageController;
     this.iconColor = UIColors.primary;
+    this.toogleOpened = toogle;
     setMargins(num);
   }
 
@@ -122,6 +129,7 @@ class NavItemDropped extends UIItem{
             print(0);
             print(page);
             _pageController.jumpToPage(page);
+            toogleOpened();
           },
           child: SlideTransition(
             position: controller,

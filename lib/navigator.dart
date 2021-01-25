@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/Screens/liveScreen.dart';
 import 'package:isa_new/Screens/profileScreen.dart';
+import 'package:isa_new/Screens/timeTableScreen.dart';
 import 'package:isa_new/UI/UI.dart' as UI;
 
 import 'file:///D:/AndroidStudioProjects/isa_new/lib/Screens/ChatsScreens/chatScreen.dart';
@@ -18,7 +19,7 @@ class IsaNavigator extends StatefulWidget {
 
 class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
   bool opened = false;
-  int active;
+  int active = 0;
   Animation _arrowAnimation;
   AnimationController _arrowAnimationController;
 
@@ -30,12 +31,25 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
     newsScreen(),
     chatScreen(),
     profileScreen(),
-    liveScreen()
+    liveScreen(),
+    timeTableScreen()
   ];
+
+  void toogleOpened() {
+    if (opened) {
+      _navbarButtonsAnimationController.reverse();
+      _arrowAnimationController.reverse();
+    } else {
+      _navbarButtonsAnimationController.forward();
+      _arrowAnimationController.forward();
+    }
+    setState(() {
+      opened = !opened;
+    });
+  }
 
   @override
   void initState() {
-
     _arrowAnimationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _arrowAnimation =
@@ -62,24 +76,16 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
         builder: (context, child) => Transform.rotate(
           angle: -_arrowAnimation.value,
           child: Container(
-            width: displayWidth(context)*0.175,
-            child: FloatingActionButton(
-              //FIXME use color from ui
-              backgroundColor: Color(0xffFFB73E),
-              child: !opened?const Icon(Icons.add):const Icon(Icons.remove), onPressed: () {
-              //print("rotating");
-              if (opened){
-                _navbarButtonsAnimationController.reverse();
-                _arrowAnimationController.reverse();
-              }else{
-                _navbarButtonsAnimationController.forward();
-                _arrowAnimationController.forward();
-              }
-              setState(() {
-                opened = !opened;
-              });
-            },),
-          ),
+            width: displayWidth(context) * 0.175,
+                  child: FloatingActionButton(
+                    //FIXME use color from ui
+                    backgroundColor: Color(0xffFFB73E),
+                    child: !opened
+                        ? const Icon(Icons.add)
+                        : const Icon(Icons.remove),
+                    onPressed: toogleOpened,
+                  ),
+                ),
         ),
 
       ),
@@ -103,10 +109,13 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
                   ),
 
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       navController.jumpToPage(1);
                     },
-                    child: 1!=active?NavItem("assets/images/navbarIcons/chat.svg" , num: 2):NavItem.active("assets/images/navbarIcons/chat.svg" , num: 2),
+                    child: 1 != active ? NavItem(
+                        "assets/images/navbarIcons/chat.svg", num: 2) : NavItem
+                        .active(
+                        "assets/images/navbarIcons/chatActive.svg", num: 2),
                   ),
                 ],
               ),
@@ -148,21 +157,28 @@ class NavigatorState extends State<IsaNavigator> with TickerProviderStateMixin {
                 },
                 children: _pages,
               ),
+
               active != 4
                   ? NavItemDropped(UI.icons.navSchedulte,
-                      navbarButtonsAnimationoffset, 1, navController, 4)
+                  navbarButtonsAnimationoffset, 1, navController, 4,
+                  toogleOpened)
                   : NavItemDropped.active(UI.icons.navSchedulte,
-                      navbarButtonsAnimationoffset, 1, navController, 4),
+                  navbarButtonsAnimationoffset, 1, navController, 4,
+                  toogleOpened),
               active != 5
                   ? NavItemDropped(UI.icons.navEventsIcon,
-                      navbarButtonsAnimationoffset, 2, navController, 5)
+                  navbarButtonsAnimationoffset, 2, navController, 5,
+                  toogleOpened)
                   : NavItemDropped.active(UI.icons.navEventsIcon,
-                      navbarButtonsAnimationoffset, 2, navController, 5),
+                  navbarButtonsAnimationoffset, 2, navController, 5,
+                  toogleOpened),
               active != 6
                   ? NavItemDropped(UI.icons.navEditIcon,
-                      navbarButtonsAnimationoffset, 3, navController, 6)
+                  navbarButtonsAnimationoffset, 3, navController, 6,
+                  toogleOpened)
                   : NavItemDropped.active(UI.icons.navEditIcon,
-                      navbarButtonsAnimationoffset, 3, navController, 6),
+                  navbarButtonsAnimationoffset, 3, navController, 6,
+                  toogleOpened),
             ])),
 
 
