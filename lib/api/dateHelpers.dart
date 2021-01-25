@@ -39,3 +39,40 @@ String dmy(DateTime date) {
   }
   return day + "." + month + "." + year.substring(2);
 }
+
+String day(int index) {
+  List<String> days = [
+    'понедельник',
+    'вторник',
+    'среда',
+    'четверг',
+    'пятница',
+    'суббота',
+    'воскресение'
+  ];
+  return days[index - 1];
+}
+
+String shortDay(int index) {
+  List<String> days = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+  return days[index - 1];
+}
+
+String month(int index) {
+  List<String> months = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ];
+  ;
+  return months[index - 1];
+}

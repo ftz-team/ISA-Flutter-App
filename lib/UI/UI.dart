@@ -52,6 +52,16 @@ class UITypography {
         fontSize: displayWidth(context) * 0.045);
   }
 
+  static TextStyle Figma16px(BuildContext context,
+      {Color color = UIColors.black, FontWeight weight = FontWeight.w700}) {
+    return TextStyle(
+        color: color,
+        fontFamily: ui.font,
+        fontWeight: weight,
+        height: displayHeight(context) * 0.0023,
+        fontSize: displayWidth(context) * 0.04);
+  }
+
   //H3 - Figma 14px
   static TextStyle h3(BuildContext context,
       {Color color = UIColors.black, FontWeight weight = FontWeight.w700}) {
@@ -154,10 +164,13 @@ class PageWithTabs extends StatefulWidget {
   List<String> tabsNames;
   List<Widget> tabs;
   String header;
+  Color underlineColor;
 
-  PageWithTabs(this.tabsNames, this.tabs, this.header);
+  PageWithTabs(this.tabsNames, this.tabs, this.header,
+      {this.underlineColor = UIColors.primary});
 
-  PageWithTabsState createState() => PageWithTabsState(tabsNames, tabs, header);
+  PageWithTabsState createState() =>
+      PageWithTabsState(tabsNames, tabs, header, underlineColor);
 }
 
 class PageWithTabsState extends State<PageWithTabs>
@@ -166,8 +179,10 @@ class PageWithTabsState extends State<PageWithTabs>
   TabController _controller;
   int activeTab = 0;
   String header;
+  Color underlineColor;
 
-  PageWithTabsState(this._tabsNames, this._tabs, this.header);
+  PageWithTabsState(this._tabsNames, this._tabs, this.header,
+      this.underlineColor);
 
   List<String> _tabsNames;
   List<Widget> _tabs;
@@ -184,7 +199,6 @@ class PageWithTabsState extends State<PageWithTabs>
   }
 
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -199,7 +213,8 @@ class PageWithTabsState extends State<PageWithTabs>
                 indicator: UnderlineTabIndicator(
                   borderSide: BorderSide(
                       width: displayHeight(context) * 0.005,
-                      color: UIColors.primary),
+                      color: underlineColor),
+
                   insets: EdgeInsets.symmetric(
                       horizontal: displayWidth(context) * 0.05),
 
