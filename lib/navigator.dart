@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:isa_new/Helpers/sizeHelpers.dart';
 import 'package:isa_new/Screens/liveScreen.dart';
 import 'package:isa_new/Screens/profileScreen.dart';
-import 'package:isa_new/Screens/timeTableScreen.dart';
 import 'package:isa_new/UI/UI.dart' as UI;
 
 import 'file:///D:/AndroidStudioProjects/isa_new/lib/Screens/ChatsScreens/chatScreen.dart';
 import 'file:///D:/AndroidStudioProjects/isa_new/lib/Screens/NewsScreens/newsScreen.dart';
+import 'file:///D:/AndroidStudioProjects/isa_new/lib/Screens/TimeTableScreens/timeTableScreen.dart';
 
 import 'UI/navbar.dart';
 

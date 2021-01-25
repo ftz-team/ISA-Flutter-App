@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:isa_new/UI/UI.dart';
 
-class timeTableScreen extends UIItem {
+class ScheduleScreen extends UIItem {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("fewfewfw"),
+      child: Text(
+        "vrefref",
+        style: UITypography.h3(context),
+      ),
     );
   }
 }
