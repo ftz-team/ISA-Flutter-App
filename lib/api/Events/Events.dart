@@ -1,3 +1,5 @@
+import 'package:isa_new/models/eventsModels/EventModel.dart';
+
 import '../dateHelpers.dart';
 import '../network_helpers/make_request.dart';
 import 'Feedback.dart';
@@ -38,8 +40,7 @@ class Events {
     }
   }
 
-  Future<Map> get(
-      {DateTime timeStart, DateTime timeEnd, int last, int step}) async {
+  Future<Map> get({DateTime timeStart, DateTime timeEnd, int last, int step}) async {
     List events = [];
     final response = await makeGetRequest(data: {
       "step": step,
@@ -48,16 +49,26 @@ class Events {
       "date_to": djangoS(timeEnd),
     }, token: token, endpoint: "events/get-all-events");
 
-    if (!response['ok']) {
-      return {"ok": false, "response": response};
+    if (response['ok']) {
+      List ans = [];
+      print(response);
+      for (int i = 1; i < response['response'].length; i++) {
+        print(response['response'][i]['date_start']);
+        print("BBT");
+        try {
+          ans.add(EventModel.fromJson(response['response'][i]));
+        } finally {}
+
+        print("я люблю члены");
+      }
+      return {"ok": true, "response": ans};
     } else {
       events.addAll(response['response']);
       return {"ok": true, "response": events};
     }
   }
 
-  Future<Map> getTest(
-      {DateTime timeStart, DateTime timeEnd, int last, int step}) async {
+  Future<Map> getTest({DateTime timeStart, DateTime timeEnd, int last, int step}) async {
     return {
       "ok": true,
       "response": {

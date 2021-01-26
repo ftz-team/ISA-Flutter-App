@@ -76,3 +76,26 @@ String month(int index) {
   ;
   return months[index - 1];
 }
+
+getIntervalString(DateTime dStart, DateTime dEnd) {
+  return normalS(dStart) + "-" + normalS(dEnd);
+}
+
+getDateTimeFromDjango(String date) {
+  var newDate = "";
+  bool flag = false;
+  print("86 LINE");
+  print(date);
+  for (int j = 0; j < date.length; j++) {
+    if (date[j] == ".") {
+      newDate = newDate + "Z";
+      flag = true;
+      break;
+    } else {
+      if (!flag) {
+        newDate = newDate + date[j];
+      }
+    }
+  }
+  return DateTime.parse(newDate);
+}

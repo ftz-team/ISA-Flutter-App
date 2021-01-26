@@ -19,6 +19,8 @@ class UIColors {
   static const newsCardBackground = Color(0xffFEFEFE);
   static const likeBackground = Color(0xffffe7dc);
   static const semiBlue = Color(0xffC9E8FF);
+  static const semiYellow = Color(0xffFFEACD);
+  static const background = Color(0xffF9F9F9);
 }
 
 class UIIcons {
@@ -30,6 +32,7 @@ class UIIcons {
   final String newsLikeActiveButton = "assets/images/newsIcons/likeActive.svg";
   final String backButton = "assets/images/backButton.svg";
   final String cancelButton = "assets/images/cancel.svg";
+  final String plusButton = "assets/images/plus.svg";
 }
 
 class UITypography {
@@ -205,17 +208,15 @@ class PageWithTabsState extends State<PageWithTabs>
           child: Scaffold(
             backgroundColor: UIColors.defaultBackground,
             appBar: AppBar(
-              backgroundColor: Colors.white,
-              centerTitle: true,
-              title: AppBarTextHeader(header),
-              bottom: TabBar(
-                controller: _controller,
-                indicator: UnderlineTabIndicator(
-                  borderSide: BorderSide(
-                      width: displayHeight(context) * 0.005,
-                      color: underlineColor),
-
-                  insets: EdgeInsets.symmetric(
+              backgroundColor: Color(0xffF9F9F9),
+          centerTitle: true,
+          title: AppBarTextHeader(header),
+          bottom: TabBar(
+            controller: _controller,
+            indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(
+                  width: displayHeight(context) * 0.005, color: underlineColor),
+              insets: EdgeInsets.symmetric(
                       horizontal: displayWidth(context) * 0.05),
 
 

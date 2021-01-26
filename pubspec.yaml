@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^0.5.4+6
+  dotted_border: ^1.0.7
   flutter_svg: ^0.19.1
   rxdart: ^0.25.0
   cached_network_image: ^2.5.0
