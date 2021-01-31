@@ -4,15 +4,14 @@ import "package:flutter/material.dart";
 import 'globals.dart' as globals;
 import 'navigator.dart';
 
-final kReleaseMode = true;
+final kReleaseMode = false;
 
 void main() => runApp(
       DevicePreview(
         enabled: !kReleaseMode,
         builder: (context) => new MyApp(), //remove on prod
       ),
-    )
-;
+    );
 
 class MyApp extends StatelessWidget {
   MyApp() {

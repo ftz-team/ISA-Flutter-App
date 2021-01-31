@@ -45,12 +45,26 @@ class SingleNewsScreenState extends State<SingleNewsScreen> {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    ConstrainedBox(
+                        child: Container(
+                          height: displayHeight(context) * 0.065,
+                          width: displayWidth(context),
+                        ),
+                        constraints: BoxConstraints(
+                            maxHeight: 24, maxWidth: displayWidth(context))),
                     Container(
                       margin: EdgeInsets.only(
-                          left: displayWidth(context) * 0.035,
-                          top: displayHeight(context) * 0.065),
+                        left: displayWidth(context) * 0.035,
+                      ),
                       child: backButton(),
                     ),
+                    ConstrainedBox(
+                        child: Container(
+                          height: displayHeight(context) * 0.025,
+                          width: displayWidth(context),
+                        ),
+                        constraints: BoxConstraints(
+                            maxHeight: 14, maxWidth: displayWidth(context))),
                     Expanded(
                       flex: 8,
                       child: Container(

@@ -194,18 +194,22 @@ class NewsCardInner extends UIItem {
           children: [
             Expanded(
                 flex: 4,
-                child: Container(
-                  height: displayHeight(context) * 0.14,
-                  margin: EdgeInsets.only(right: displayWidth(context) * 0.02),
-                  child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.circular(displayWidth(context) * 0.02),
-                    child: CachedNetworkImage(
-                      imageUrl: NewsData.asset,
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                      fit: BoxFit.cover,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxHeight: 94),
+                  child: Container(
+                    height: displayHeight(context) * 0.14,
+                    margin:
+                        EdgeInsets.only(right: displayWidth(context) * 0.02),
+                    child: ClipRRect(
+                      borderRadius:
+                          BorderRadius.circular(displayWidth(context) * 0.02),
+                      child: CachedNetworkImage(
+                        imageUrl: NewsData.asset,
+                        placeholder: (context, url) =>
+                            CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 )),
@@ -219,7 +223,7 @@ class NewsCardInner extends UIItem {
                   NewsData.type == "post"
                       ? NewsTypeHeader.news()
                       : NewsData.type == "poll"
-                      ? NewsTypeHeader.poll()
+                          ? NewsTypeHeader.poll()
                       : NewsTypeHeader.petition(),
                   NewsHeaderText(NewsData.header),
                   NewsData.type == "post"

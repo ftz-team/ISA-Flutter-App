@@ -47,8 +47,6 @@ class chatCardImage extends UIItem {
       borderRadius: BorderRadius.circular(displayWidth(context) * 0.12),
       child: Image.network(
         asset,
-        fit: BoxFit.fill,
-        height: displayHeight(context) * 0.09,
       ),
     );
   }

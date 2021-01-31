@@ -115,12 +115,7 @@ class AppBarTextHeader extends UIItem {
   Widget build(BuildContext context) {
     return Text(
       header,
-      style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontFamily: font,
-          color: UIColors.black
-
-      ),
+      style: UITypography.h1(context),
     );
   }
 }
@@ -207,25 +202,36 @@ class PageWithTabsState extends State<PageWithTabs>
       body: Container(
           child: Scaffold(
             backgroundColor: UIColors.defaultBackground,
-            appBar: AppBar(
-              backgroundColor: Color(0xffF9F9F9),
-          centerTitle: true,
-          title: AppBarTextHeader(header),
-          bottom: TabBar(
-            controller: _controller,
-            indicator: UnderlineTabIndicator(
-              borderSide: BorderSide(
-                  width: displayHeight(context) * 0.005, color: underlineColor),
-              insets: EdgeInsets.symmetric(
-                      horizontal: displayWidth(context) * 0.05),
+            appBar:
+            PreferredSize(
+              preferredSize: displaySize(context) * 0.1,
+              child: AppBar(
+
+                elevation: 0,
+                backgroundColor: UIColors.defaultBackground,
+                centerTitle: true,
+                title: AppBarTextHeader(header),
+                bottom: TabBar(
+                  controller: _controller,
+                  indicator: UnderlineTabIndicator(
+                    borderSide: BorderSide(
+                        width: displayHeight(context) * 0.005,
+                        color: underlineColor
+                    ),
+                    insets: EdgeInsets.only(
+                      bottom: displayHeight(context) * 0.005,
+                      right: displayWidth(context) * 0.05,
+                      left: displayWidth(context) * 0.05,
+                    ),
 
 
+                  ),
+                  tabs: [
+                    for(var i = 0; i < _tabsNames.length; i++) activeTab == i
+                        ? TabBarTabItem(_tabsNames[i])
+                        : TabBarTabItem.disabled(_tabsNames[i])
+                  ],
                 ),
-                tabs: [
-                  for(var i = 0; i < _tabsNames.length; i++) activeTab == i
-                      ? TabBarTabItem(_tabsNames[i])
-                      : TabBarTabItem.disabled(_tabsNames[i])
-                ],
               ),
             ),
             body: TabBarView(
