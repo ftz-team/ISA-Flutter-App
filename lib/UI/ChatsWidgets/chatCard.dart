@@ -14,7 +14,7 @@ class chatCard extends UIItem {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(color: Colors.white),
+        decoration: BoxDecoration(color: UIColors.defaultBackground),
         margin: EdgeInsets.only(
             top: displayHeight(context) * 0.013,
             left: displayWidth(context) * 0.025,

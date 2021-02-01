@@ -30,7 +30,7 @@ class DialogsBloc {
         "readed": true,
         "last_online": "был(а) в 17:06",
         "userImg":
-        "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
       }),
       ChatModel.fromJson({
         "username": "Артём Смирнов",
@@ -39,7 +39,79 @@ class DialogsBloc {
         "readed": true,
         "last_online": "был(а) в 17:06",
         "userImg":
-        "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
+      }),
+      ChatModel.fromJson({
+        "username": "Артём Смирнов",
+        "lastMsg": "Представляешь, не ожидал что стану супер крутым",
+        "lastMsgTime": "11:50",
+        "readed": true,
+        "last_online": "был(а) в 17:06",
+        "userImg":
+            "https://wl-brightside.cf.tsp.li/resize/728x/jpg/f6e/ef6/b5b68253409b796f61f6ecd1f1.jpg",
       }),
     ];
 

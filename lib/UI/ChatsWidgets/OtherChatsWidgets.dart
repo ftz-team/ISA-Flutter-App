@@ -87,7 +87,7 @@ class chatCardLastMsg extends UIItem {
         width: displayWidth(context) * 0.7,
         child: Text(
           text,
-          style: UITypography.h4(context, weight: FontWeight.w500),
+          style: UITypography.h4(context, weight: FontWeight.w400),
         ));
   }
 }

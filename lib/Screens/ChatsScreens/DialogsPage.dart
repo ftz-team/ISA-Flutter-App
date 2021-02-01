@@ -15,7 +15,7 @@ class DialogsPage extends UIItem {
           dialogsBlocc.fetchNews();
           if (snapshot.hasData) {
             return Container(
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(color: UIColors.defaultBackground),
               child: ListView(
                 children: [
                   for (var i in snapshot.data)

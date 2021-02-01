@@ -33,18 +33,18 @@ class dayCard extends UIItem {
       margin: EdgeInsets.only(
           right: displayWidth(context) * 0.0123,
           left: displayWidth(context) * 0.0123,
-          bottom: displayHeight(context) * 0.02),
+          bottom: displayHeight(context) * 0.03),
       decoration: BoxDecoration(
           color: background,
           borderRadius: BorderRadius.circular(displayWidth(context) * 0.08),
           boxShadow: shadow
               ? [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 3,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 1,
+                    blurRadius: 3,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
           ]
               : null),
       width: displayWidth(context) * 0.12,
@@ -81,21 +81,31 @@ class EventCategoryCard extends UIItem {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: displayHeight(context) * 0.05,
-      padding: EdgeInsets.only(
-        top: displayHeight(context) * 0.002,
-        left: displayWidth(context) * 0.065,
-        right: displayWidth(context) * 0.065,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+          maxHeight: 35,
+          maxWidth: 100
       ),
-      margin: EdgeInsets.only(right: displayWidth(context) * 0.02),
-      decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(displayWidth(context) * 0.07)),
-      child: Text(
-        text,
-        style: UITypography.h3(context,
-            color: Colors.white, weight: FontWeight.w500),
+      child: Container(
+          height: displayHeight(context) * 0.05,
+          width: displayWidth(context) * 0.25,
+          padding: EdgeInsets.only(
+              bottom: displayHeight(context) * 0.006
+          ),
+          margin: EdgeInsets.only(right: displayWidth(context) * 0.02),
+          decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(
+                  displayWidth(context) * 0.07)),
+          child: Center(
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+
+              style: UITypography.h3(context,
+                  color: Colors.white, weight: FontWeight.w500),
+            ),
+          )
       ),
     );
   }
