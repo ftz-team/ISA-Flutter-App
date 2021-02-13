@@ -250,7 +250,10 @@ class placeHolderMargin extends UIItem {
   double _maxHeight;
 
   placeHolderMargin(
-      {double height, double width, double maxHeight, double maxWidth}) {
+      {double height = 1,
+      double width = 1,
+      double maxHeight = 1000,
+      double maxWidth = 1000}) {
     this._height = height;
     this._width = width;
     this._maxWidth = maxWidth;
@@ -259,12 +262,13 @@ class placeHolderMargin extends UIItem {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: _maxWidth, maxHeight: _maxHeight),
-      child: Container(
-        height: _height,
-        width: _width,
-      ),
-    );
+    return
+      ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: _maxWidth, maxHeight: _maxHeight),
+        child: Container(
+          height: _height,
+          width: _width,
+        ),
+      );
   }
 }
